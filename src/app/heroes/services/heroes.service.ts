@@ -21,6 +21,10 @@ export class HeroesService {
     //const params = new HttpParams();
     //params.set('id',id);
     //return this.http.get<Heroe>('http://localhost:3000/heroes/',{params});
-    return this.http.get<Heroe>(`${this.baseUrl}/heroes/${id}`)
+    return this.http.get<Heroe>(`${this.baseUrl}/heroes/${id}`);
+  }
+
+  getSugerencias(termino:string):Observable<Heroe[]>{
+    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes?q=${termino}&_limit=5`);
   }
 }
